@@ -6,12 +6,13 @@ var movement_skill_pity = 0.00;
 var physical_stat_pity = 0.00;
 
 
-// make a tick .25 seconds
-setTimeout(() => {
-    tick_counter += 1;
-    tickchange()
-})
-
+while(true) {
+    // make a tick .25 seconds
+    setTimeout(() => {
+        tick_counter += 1;
+        tickchange()
+    })
+}
 function move() {
     // check if the skill succeeds
     // NOTE: uses the same check roll for all of these, possible that is wrong but it will save processing
