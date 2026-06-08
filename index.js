@@ -37,6 +37,6 @@ function tickchange() {
     move();
     // update all labels
     const label = document.getElementById("skill_movement_value");
-    label.textContent= movement_skill.toFixed(2);
     label.style.display = "block";
+    label.textContent = movement_skill.toFixed(2);
 }
