@@ -14,7 +14,7 @@ setTimeout(() => {
 
 function move() {
     // check if the skill succeeds
-    // NOTE: uses the same check roll for all of these, possible that is wrong but it will save processing for now
+    // NOTE: uses the same check roll for all of these, possible that is wrong but it will save processing
     var skillcheck = Math.floor(Math.random() * 100) + 1;
     if (skillcheck < (movement_skill + (physical_stat * .1))) {
         console.log("movement success");
