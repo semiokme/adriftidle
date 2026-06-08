@@ -5,15 +5,11 @@ var physical_stat  = 0.00;
 var movement_skill_pity = 0.00;
 var physical_stat_pity = 0.00;
 
-
-while(true) {
-    // make a tick .25 seconds
-    setTimeout(() => {
-        tick_counter += 1;
-        tickchange();
-        console.log("finished tick");
-    })
-}
+const tickInterval = setInterval(() => {
+    tick_counter += 1;
+    tickchange();
+    console.log("finished tick");
+}, 250);
 
 function move() {
     // check if the skill succeeds
