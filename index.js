@@ -5,7 +5,7 @@ var physical_stat  = 0.00;
 var movement_skill_pity = 0.00;
 var physical_stat_pity = 0.00;
 
-const tickInterval = setInterval(() => {
+setInterval(() => {
     tick_counter += 1;
     tickchange();
     console.log("finished tick");
@@ -38,4 +38,5 @@ function tickchange() {
     const label = document.getElementById("skill_movement_value");
     label.style.display = "block";
     label.textContent = movement_skill.toFixed(2);
+    console.log("end of tickchange")
 }
