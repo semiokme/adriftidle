@@ -25,7 +25,7 @@ function move() {
     if ((skillcheck < (100.00 + movement_skill_pity) - movement_skill )) {
         console.log("movement skill growth");
         movement_skill_pity = 0.00;
-        movement_skill += (100.00 - moement_skill) * (physical_stat / 100.00) + ((Math.random() * 5) / 10.0);
+        movement_skill += (100.00 - movement_skill) * (physical_stat / 100.00) + ((Math.random() * 5) / 10.0);
     }
     // check for stat growth
 
