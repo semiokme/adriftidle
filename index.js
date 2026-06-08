@@ -10,9 +10,11 @@ while(true) {
     // make a tick .25 seconds
     setTimeout(() => {
         tick_counter += 1;
-        tickchange()
+        tickchange();
+        console.log("finished tick");
     })
 }
+
 function move() {
     // check if the skill succeeds
     // NOTE: uses the same check roll for all of these, possible that is wrong but it will save processing
