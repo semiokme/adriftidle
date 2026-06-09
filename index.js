@@ -24,9 +24,19 @@ function move() {
     if ((skillcheck < (100.00 + movement_skill_pity) - movement_skill )) {
         console.log("movement skill growth");
         movement_skill_pity = 0.00;
-        movement_skill += (100.00 - movement_skill) * (physical_stat / 100.00) + ((Math.random() * 5) / 10.0);
+        movement_skill += ((101.00 - movement_skill) / 100.00) * ((101.00 - physical_stat) / 100.00) + ((Math.random() * 5) / 10.0);
+    } else {
+        movement_skill_pity += 1.00;
     }
     // check for stat growth
+    // the 50 halves growth, and the *4 makes it have a harsher curve than the skills
+    if ((physical_stat < (50.00 + physical_stat_pity) - physical_stat * 4)) {
+        console.log("movement skill growth");
+        physical_stat_pity = 0.00;
+        physical_stat += ((101.00 - physical_stat) / 100.00) * ((101.00 - physical_stat) / 100.00) + ((Math.random() * 5) / 10.0);
+    } else {
+        physical_stat_pity += 1.00;
+    }
 
 
 }
@@ -35,8 +45,12 @@ function tickchange() {
     // move towards the goal
     move();
     // update all labels
-    const label = document.getElementById("skill_movement_value");
-    label.style.display = "block";
-    label.textContent = movement_skill.toFixed(2);
+    const move_label = document.getElementById("skill_movement_value");
+    move_label.style.display = "block";
+    move_label.textContent = "Movement Skill: " + movement_skill.toFixed(2);
+    const physical_label = document.getElementById("stat_physical_value");
+    physical_label.style.display = "block";
+    physical_label.textContent = "Physical Stat: " + physical_stat.toFixed(2);
+    
     console.log("end of tickchange")
 }
