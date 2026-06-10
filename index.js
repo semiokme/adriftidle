@@ -9,6 +9,7 @@ var current_destination = null;
 var distnace_to_destination = null;
 var asteroid_distance = 1000.00;
 
+// change course button
 var destination_button = document.createElement('button')
 destination_button.innertText = "Asteroid";
 destination_button.onclick = setcourse(destination_button.innerText)
