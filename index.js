@@ -14,7 +14,7 @@ var destination_button = document.createElement('button')
 destination_button.innertText = "Asteroid";
 destination_button.onclick = setcourse(destination_button.innerText)
 
-var container = getElementById("buttonContainer");
+var container = document.getElementById("buttonContainer");
 container.appendChild(destination_button);
 
 setInterval(() => {
