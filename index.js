@@ -5,6 +5,17 @@ var physical_stat  = 0.00;
 var movement_skill_pity = 0.00;
 var physical_stat_pity = 0.00;
 
+var current_destination = null;
+var distnace_to_destination = null;
+var asteroid_distance = 1000.00;
+
+var destination_button = document.createElement('button')
+destination_button.innertText = "Asteroid";
+destination_button.onclick = setCourse(destination_button.innerText)
+
+var container = getElementById("buttonContainer");
+container.appendChild(destination_button);
+
 setInterval(() => {
     tick_counter += 1;
     tickchange();
@@ -17,6 +28,9 @@ function move() {
     var skillcheck = Math.floor(Math.random() * 100) + 1;
     if (skillcheck < (movement_skill + (physical_stat * .1))) {
         console.log("movement success");
+        if(current_destination) {
+            distnace_to_destination -= (100.00 - skillcheck) * (movement_skill / 100.00); // i think this is right 
+        }
     } else {
         console.log("movement failed");
     }
@@ -51,6 +65,16 @@ function tickchange() {
     const physical_label = document.getElementById("stat_physical_value");
     physical_label.style.display = "block";
     physical_label.textContent = "Physical Stat: " + physical_stat.toFixed(2);
-    
+    const bottom_label = document.getElementById("main_text_bottom");
+    if(current_destination) {
+        bottom_label.textContent = "Bearing: " + current_destination + " Distance: " + distnace_to_destination.toFixed(2);
+    }
     console.log("end of tickchange")
+}
+
+function setcourse(destination_name) {
+    if(destination_name != current_destination) {
+        current_destination = destination_name;
+    }
+
 }
