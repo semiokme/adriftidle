@@ -7,7 +7,7 @@ var physical_stat_pity = 0.00;
 
 var current_destination = null;
 var distnace_to_destination = null;
-var asteroid_distance = 1000.00;
+var asteroid_distance = 10000.00;
 
 // change course button
 var destination_button = document.createElement('button')
@@ -76,6 +76,10 @@ function tickchange() {
 function setcourse(destination_name) {
     if(destination_name != current_destination) {
         current_destination = destination_name;
+        if(current_destination == "Asteroid") {
+            distnace_to_destination = asteroid_distance;
+            destination_button.remove();
+        }
     }
 
 }
