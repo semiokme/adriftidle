@@ -13,7 +13,7 @@ var asteroid_distance = 10000.00;
 var destination_button = document.createElement('button')
 destination_button.textContent = "Asteroid";
 destination_button.id = "destbutton";
-destination_button.addEventListener("click", setcourse(destination_button.innerText))
+destination_button.onclick = setcourse(destination_button.innerText)
 
 var container = document.getElementById("buttonContainer");
 container.appendChild(destination_button);
